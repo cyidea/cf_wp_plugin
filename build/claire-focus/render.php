@@ -4,5 +4,5 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Claire Focus – hello from a dynamic block!', 'claire-focus' ); ?>
+	<?php echo isset( $attributes['content'] ) ? wp_kses_post( $attributes['content'] ) : ''; ?>
 </p>

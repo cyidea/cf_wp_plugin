@@ -8,6 +8,11 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Claire Focus',
 		'category' => 'widgets',
+		'attributes' => array(
+			'content' => array(
+				'type' => 'string'
+			)
+		),
 		'icon' => 'smiley',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(

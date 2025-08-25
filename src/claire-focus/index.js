@@ -17,8 +17,8 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import Edit from './edit';
 import metadata from './block.json';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -26,8 +26,24 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
+	edit: ({ attributes, setAttributes }) => {
+    const blockProps = useBlockProps();
+    return (
+      <RichText
+        {...blockProps}
+        tagName="p"
+        value={attributes.content}
+        onChange={(newContent) => setAttributes({ content: newContent })}
+        placeholder="Enter your custom text here..."
+      />
+    );
+  },
+  save: ({ attributes }) => {
+    const blockProps = useBlockProps.save();
+    return (
+      <p {...blockProps}>
+        <RichText.Content value={attributes.content} />
+      </p>
+    );
+  },
 } );

@@ -5,7 +5,12 @@
 	"version": "0.1.0",
 	"title": "Claire Focus",
 	"category": "widgets",
-	"icon": "smiley",
+	"attributes": {
+			"content": {
+				"type": "string"
+			}
+  },
+				"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {

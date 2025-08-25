@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -29,10 +30,15 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Claire Focus – hello from the editor!', 'claire-focus' ) }
-		</p>
-	);
+export default function Edit({ attributes, setAttributes }) {
+   const blockProps = useBlockProps();
+   return (
+	   <RichText
+		   {...blockProps}
+		   tagName="p"
+		   value={attributes.content}
+		   onChange={newContent => setAttributes({ content: newContent })}
+		   placeholder={__('Enter your custom text here...', 'claire-focus')}
+	   />
+   );
 }
