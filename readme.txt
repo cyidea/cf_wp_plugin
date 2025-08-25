@@ -48,6 +48,6 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 = 0.1.0 =
 * Release
 
-== Arbitrary section ==
+== Run Locally ==
 
-testing the plugin
+After cloning the repo, run 'npm install' before running 'npm start'
